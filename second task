@@ -1,0 +1,71 @@
+#include <iostream>
+
+using namespace std;
+
+// Function declarations
+float add(float x, float y) {
+    return x + y;
+}
+
+float subtract(float x, float y) {
+    return x - y;
+}
+
+float multiply(float x, float y) {
+    return x * y;
+}
+
+float divide(float x, float y) {
+    if (y != 0) {
+        return x / y;
+    } else {
+        cout << "Error: Division by zero" << endl;
+        return 0; // You might want to handle this case differently
+    }
+}
+
+int main() {
+    // Get user input
+    float num1, num2;
+    cout << "Enter the first number: ";
+    cin >> num1;
+    cout << "Enter the second number: ";
+    cin >> num2;
+
+    // Display operation options
+    cout << "Choose operation:" << endl;
+    cout << "1. Addition" << endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Multiplication" << endl;
+    cout << "4. Division" << endl;
+
+    // Get user choice
+    char choice;
+    cout << "Enter choice (1/2/3/4): ";
+    cin >> choice;
+
+    // Perform the chosen operation
+    float result;
+    switch (choice) {
+        case '1':
+            result = add(num1, num2);
+            break;
+        case '2':
+            result = subtract(num1, num2);
+            break;
+        case '3':
+            result = multiply(num1, num2);
+            break;
+        case '4':
+            result = divide(num1, num2);
+            break;
+        default:
+            cout << "Invalid input" << endl;
+            return 1; // Exit with an error code
+    }
+
+    // Display the result
+    cout << "Result: " << result << endl;
+
+    return 0; // Exit successfully
+}
